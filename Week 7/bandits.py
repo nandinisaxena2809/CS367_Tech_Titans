@@ -2,7 +2,6 @@ import numpy as np
 import random
 from collections import defaultdict
 
-# ============ MENACE Implementation ============
 class MENACE:
     def __init__(self):
         self.matchboxes = defaultdict(lambda: [1]*9)  # Initial beads per position
@@ -70,7 +69,6 @@ class NonStationaryBandit:
         self.means = np.zeros(10)  # Start equal
     
     def pull(self, action):
-        """Return reward and update all means"""
         reward = np.random.randn() + self.means[action]
         self.means += np.random.normal(0, 0.01, 10)  # Random walk
         return reward
@@ -97,8 +95,6 @@ def epsilon_greedy_nonstationary(bandit, epsilon=0.1, alpha=0.1, steps=10000):
     
     return Q, rewards, optimal_actions
 
-
-# ============ Test Functions ============
 def test_binary_bandits():
     banditA = BinaryBandit(0.3, 0.7)
     banditB = BinaryBandit(0.6, 0.4)
