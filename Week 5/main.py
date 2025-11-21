@@ -1,8 +1,3 @@
-"""
-Financial Time Series Analysis using Gaussian Hidden Markov Models
-Lab Assignment 5 - AI Course
-"""
-
 import numpy as np
 import pandas as pd
 import yfinance as yf
@@ -302,15 +297,7 @@ def main():
     analyzer = FinancialHMM(TICKER, START_DATE, END_DATE, n_states=N_STATES)
     analyzer.run_full_analysis()
     
-    # compare different state counts
-    print("\n\n" + "="*70)
-    print("BONUS: COMPARING DIFFERENT MODEL COMPLEXITIES")
-    print("="*70)
-    comparison = compare_multiple_states(TICKER, START_DATE, END_DATE, state_range=[2, 3, 4])
-    
-    # save
-    analyzer.df.to_csv(f'{TICKER}_hmm_results.csv')
-    print(f"\n\nResults saved to '{TICKER}_hmm_results.csv'")
+
 
 
 if __name__ == "__main__":
